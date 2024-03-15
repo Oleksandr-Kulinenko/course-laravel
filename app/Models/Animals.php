@@ -13,7 +13,7 @@ class Animals extends Model
         return $this->hasMany(FeedsAnimals::class);
     }
 
-    public function get_animal(): BelongsTo
+    public function get_employee(): BelongsTo
     {
         return $this->BelongsTo(Employees::class,'employee_id');
     }
