@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return 'Hello my <b>lovely girl</b>!';
-});
+Route::get('/test',
+    [
+        \App\Http\Controllers\TestController::class,
+        'testRequest'
+    ]
+);
