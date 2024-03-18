@@ -10,8 +10,10 @@ class TestController extends Controller
 {
     public function testRequest(Request $request)
     {
-        $animal = Animal::find(1);
-        $food = $animal->foods()->where('employee_id', 2)->first();
-        dd($food->toArray());
+        $animal = Animal::with('animal_foods','animal_employees.employee')->find(1);
+        dd($animal->toArray());
+        //$food = $animal->foods()->where('employee_id', 1)->first();
+        //$food = $animal->with('foods','employees')->get();
+        //dd($food->toArray());
     }
 }

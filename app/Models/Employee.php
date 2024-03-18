@@ -12,8 +12,13 @@ class Employee extends Model
         return $this->belongsToMany(Animal::class);
     }
 
-    public function foods()
+    public function animal_foods()
     {
-        return $this->belongsToMany(Food::class);
+        return $this->belongsToMany(AnimalFood::class);
+    }
+
+    public function animal_employees()
+    {
+        return $this->hasMany(AnimalEmployee::class);
     }
 }
