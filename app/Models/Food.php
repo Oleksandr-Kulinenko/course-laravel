@@ -8,13 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Food extends Model
 {
     protected $table = 'foods';
+
     public function animals()
     {
-        return $this->belongsToMany(Animal::class);
+        return $this->belongsToMany(Animal::class, 'animal_foods');
     }
 
-    public function employees()
+    public function animal_foods()
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(AnimalFood::class);
     }
 }
