@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ZooparkController;
+use App\Http\Controllers\ZooparkFoodController;
+use App\Http\Controllers\ZooparkEmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +24,26 @@ Route::get('/test',
     [
         \App\Http\Controllers\TestController::class,
         'testRequest'
+    ]
+);
+
+Route::get('/zoopark',
+    [
+        \App\Http\Controllers\ZooparkController::class,
+        'index'
+    ]
+);
+
+Route::get('/zoopark_foods',
+    [
+        ZooparkFoodController::class,
+        'index'
+    ]
+);
+
+Route::get('/zoopark_employees',
+    [
+        ZooparkEmployeeController::class,
+        'index'
     ]
 );
