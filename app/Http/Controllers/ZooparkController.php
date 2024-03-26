@@ -16,7 +16,6 @@ class ZooparkController extends Controller
 
     public function showAnimalInfo(Request $request, Animal $animal)
     {
-        //dd($animal->toArray());
         $animalFoodData = $animal->foods;
         $animalEmployeeData = $animal->employees;
         return view(
@@ -27,5 +26,10 @@ class ZooparkController extends Controller
                 'animalEmployeeData' => $animalEmployeeData
             ]
         );
+    }
+
+    public function showWelcomePage(Request $request)
+    {
+        return view('zoopark_welcome');
     }
 }

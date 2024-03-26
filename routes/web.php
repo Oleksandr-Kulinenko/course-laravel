@@ -38,3 +38,36 @@ Route::get(
     'animals/{animal}',
     [\App\Http\Controllers\ZooparkController::class, 'showAnimalInfo']
 )->name('animal.info');
+
+Route::prefix('zoopark')->group(function () {
+    Route::get('/',
+        [
+            \App\Http\Controllers\ZooparkController::class,
+            'showWelcomePage'
+        ]
+    )->name('welcome');
+
+    Route::get(
+        '/animals',
+        [
+            \App\Http\Controllers\ZooparkAnimals::class,
+            'showAllAnimals'
+        ]
+    )->name('animals');
+
+    Route::get(
+        '/foods',
+        [
+            \App\Http\Controllers\ZooparkFoods::class,
+            'showAllFoods'
+        ]
+    )->name('foods');
+
+    Route::get(
+        '/employees',
+        [
+            \App\Http\Controllers\ZooparkEmployees::class,
+            'showAllEmployees'
+        ]
+    )->name('employees');
+});
