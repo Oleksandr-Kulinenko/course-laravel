@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Food;
+use App\Models\Animal;
 use Illuminate\Http\Request;
 
 class ZooparkController extends Controller
 {
-    public function index()
+    public function showAllAnimals(Request $request)
     {
-        $foods = Food::with('animals')->get();
+        $animals = Animal::all();
+
+        return view('animals', ['animals' => $animals]);
+    }
+
+    public function showAnimalInfo(Request $request, Animal $animal)
+    {
+        //dd($animal->toArray());
+        $animalFoodData = $animal->foods;
+        $animalEmployeeData = $animal->employees;
         return view(
-            'food_animal',
+            'animal_info',
             [
-                'foods' => $foods
+                'animal'     => $animal,
+                'animalFoodData' => $animalFoodData,
+                'animalEmployeeData' => $animalEmployeeData
             ]
         );
     }

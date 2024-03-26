@@ -27,23 +27,14 @@ Route::get('/test',
     ]
 );
 
-Route::get('/zoopark',
+Route::get('/animals',
     [
         \App\Http\Controllers\ZooparkController::class,
-        'index'
+        'showAllAnimals'
     ]
 );
 
-Route::get('/zoopark_foods',
-    [
-        ZooparkFoodController::class,
-        'index'
-    ]
-);
-
-Route::get('/zoopark_employees',
-    [
-        ZooparkEmployeeController::class,
-        'index'
-    ]
-);
+Route::get(
+    'animals/{animal}',
+    [\App\Http\Controllers\ZooparkController::class, 'showAnimalInfo']
+)->name('animal.info');
