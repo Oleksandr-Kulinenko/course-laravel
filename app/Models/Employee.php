@@ -9,13 +9,8 @@ class Employee extends Model
 {
     protected $table = 'employees';
 
-    public function animals()
+    public function animal()
     {
-        return $this->belongsToMany(Animal::class, 'animal_employees');
-    }
-
-    public function animal_employees()
-    {
-        return $this->belongsToMany(AnimalEmployee::class);
+        return $this->belongsTo(Animal::class);
     }
 }
