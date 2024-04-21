@@ -22,7 +22,20 @@ Route::get('/', function () {
 
 Route::get('/test',
     [
-        \App\Http\Controllers\TestController::class,
+        \App\Http\Controllers\TestController::class
+    ]
+);
+
+Route::get('/create_warrior',
+    [
+        \App\Services\CharacterCreationService::class,
+        'testRequest'
+    ]
+);
+
+Route::get('/create_character_factory',
+    [
+        \App\Services\CharacterFactory::class,
         'testRequest'
     ]
 );
