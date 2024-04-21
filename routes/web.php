@@ -33,6 +33,13 @@ Route::get('/create_warrior',
     ]
 );
 
+Route::get('/create_character_factory',
+    [
+        \App\Services\CharacterFactory::class,
+        'testRequest'
+    ]
+);
+
 Route::get('/animals',
     [
         \App\Http\Controllers\ZooparkController::class,
